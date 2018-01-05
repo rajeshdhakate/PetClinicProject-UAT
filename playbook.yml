@@ -1,0 +1,14 @@
+---
+- hosts: remote
+  become: true
+
+  tasks:
+    - name: copy
+      copy: src=/home/vagrant/jenkins/petclinic.war dest=/opt/apache-tomcat-8.5.24/webapps/
+
+    - name: restart tomcat service
+      command: "sh /opt/apache-tomcat-8.5.24/bin/shutdown.sh"
+      command: "sh /opt/apache-tomcat-8.5.24/bin/startup.sh" 
+
+
+
